@@ -13,7 +13,7 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat="datapoint in meassurements">
-								<td>{{ datapoint.createdAt }}</td>
+								<td>{{ datapoint.createdAt | amDateFormat: 'dddd, MMMM D '}}</td>
 								<td>{{ datapoint.weight }} kg</td>
 								<td>{{ datapoint.bmi }}</td>
 								<td>{{ datapoint.category }}</td>

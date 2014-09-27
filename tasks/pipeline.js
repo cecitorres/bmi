@@ -36,6 +36,8 @@ var jsFilesToInject = [
   'vendor/angular-route/angular-route.js',
   'vendor/bootstrap/dist/js/bootstrap.js',
   'vendor/angular-backstretch/angular-backstretch.js',
+  'vendor/moment/moment.js',
+  'vendor/angular-moment/angular-moment.js',
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/services/measurements.js',
