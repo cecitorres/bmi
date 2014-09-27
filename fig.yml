@@ -1,0 +1,10 @@
+web:
+  image: luis/sails
+  volumes:
+    - ./:/var/www
+  links:
+    - "mongodb:mongodb"
+  ports:
+    - "80:1337"
+mongodb:
+  image: luis/mongodb
