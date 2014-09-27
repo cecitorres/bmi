@@ -8,11 +8,11 @@
 module.exports = {
   attributes: {
   	weight: {
-  		type: "integer",
+  		type: "float",
   		required: true
   	},
   	height: {
-  		type: "integer",
+  		type: "float",
   		required: true
   	},
   	user: {
