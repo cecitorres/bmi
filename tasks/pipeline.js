@@ -40,7 +40,8 @@ var jsFilesToInject = [
   // will be injected here in no particular order.
   'js/services/measurements.js',
   'js/frontpageApp.js',
-  'js/calculateApp.js'
+  'js/calculateApp.js',
+  'js/historyApp.js'
 ];
 
 

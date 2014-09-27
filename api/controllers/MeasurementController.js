@@ -14,6 +14,11 @@ module.exports = {
 		return res.view("calculate");
 	},
 
+	// return the history page
+	history: function(req, res) {
+		return res.view("history");
+	},
+
 	// create a new measurement data point
 	create: function(req, res, next) {
 		var user = req.user;
