@@ -27,7 +27,8 @@
 			}
 
 			var response = Measurements.save($scope.form);
-			console.log(response);
+
+			// redirect to the route with the result
 		};
 
 	});
