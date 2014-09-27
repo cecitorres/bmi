@@ -2,9 +2,17 @@ web:
   image: luis/sails
   volumes:
     - ./:/var/www
+    - /var/log/docker/bmi:/var/log/supervisor
   links:
     - "mongodb:mongodb"
   ports:
     - "80:1337"
+  environment:
+    NODE_ENV: development 
+    PORT: 1337
 mongodb:
   image: luis/mongodb
+  expose:
+    - "27017"
+  environment:
+    DB: bmi
