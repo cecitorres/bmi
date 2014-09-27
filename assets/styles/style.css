@@ -78,6 +78,14 @@ h1.main-title {
     text-align: center;
 }
 
+.white {
+  color: #fff;
+}
+
 .well {
    background-color: rgba(245, 245, 245, 0.4);
+}
+
+.history-content {
+  margin-top: 5em;
 }
