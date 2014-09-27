@@ -1,0 +1,14 @@
+{
+  "name": "bmi",
+  "description": "An app to calculate BMI",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "3.2.0",
+    "angular": "1.2.25",
+    "angular-resource": "1.2.25",
+    "jquery-backstretch": "2.0.4",
+    "jquery": "2.1.1",
+    "angular-strap": "2.1.1",
+    "angular-route": "~1.2.25"
+  }
+}
