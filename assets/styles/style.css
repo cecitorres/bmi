@@ -1,0 +1,83 @@
+body {
+
+}
+
+#page {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+#wrapper {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.vertical-align {
+	position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.horizontal-align {
+	left: 50%;
+	positon: absolute;
+}
+
+.content {
+	padding: 2em;
+}
+
+#customBtn {
+  display: inline-block;
+  background: #dd4b39;
+  color: white;
+  width: 300px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+#customBtn:hover {
+  background: #e74b37;
+  cursor: hand;
+  text-decoration: none;
+}
+span.label {
+  font-weight: bold;
+}
+span.icon {
+  background: url("/images/btn_red_32.png") no-repeat scroll 5px 50% transparent;
+  border-right: 1px solid #bb3f30;
+  display: inline-block;
+  height: 55px;
+  vertical-align: middle;
+  width: 45px;
+}
+span.buttonText {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 35px;
+  padding-right: 35px;
+  font-size: 14px;
+  font-weight: bold;
+  /* Use the Roboto font that is loaded in the <head> */
+  font-family: 'Roboto',arial,sans-serif;
+}
+h1.main-title {
+  color: #fff;
+}
+
+.calculator {
+    position: fixed;
+    top: 25%;
+}
+
+.title-center {
+    color: #fff;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.well {
+   background-color: rgba(245, 245, 245, 0.4);
+}
