@@ -15,9 +15,9 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
-  'styles/**/*.css'
+  'vendor/bootstrap/dist/css/bootstrap.min.css',
+  'styles/*.css'
 ];
-
 
 // Client-side javascript files to inject in order
 // (uses Grunt-style wildcard/glob/splat expressions)
@@ -27,11 +27,20 @@ var jsFilesToInject = [
   'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
-  'js/dependencies/**/*.js',
-
+  'vendor/jquery/dist/jquery.js',
+  'vendor/jquery-backstretch/src/jquery.backstretch.js',
+  'vendor/angular/angular.js',
+  'vendor/angular-strap/dist/angular-strap.js',
+  'vendor/angular-strap/dist/angular-strap.tpl.js',
+  'vendor/angular-resource/angular-resource.js',
+  'vendor/angular-route/angular-route.js',
+  'vendor/bootstrap/dist/js/bootstrap.js',
+  'vendor/angular-backstretch/angular-backstretch.js',
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  'js/**/*.js'
+  'js/services/measurements.js',
+  'js/frontpageApp.js',
+  'js/calculateApp.js'
 ];
 
 
