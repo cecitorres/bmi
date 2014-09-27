@@ -48,4 +48,15 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+ 
+  '*': [ 'passport' ],
+  MeasurementController: {
+    "*": "passport",
+    calculate: "passport",
+    create: "passport",
+    edit: false,
+    remove: false,
+    find: "passport",
+    findOne: "passport"
+  }
 };

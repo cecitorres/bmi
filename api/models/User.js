@@ -9,10 +9,12 @@ module.exports = {
   attributes: {
   	email: {
   		type: "string",
-  		required: true
+  		required: true,
+      unique: true
   	},
-  	name: {
-  		type: "string"
+  	username: {
+  		type: "string",
+      unique: true
   	},
   	lastHeight: {
   		type: "height"
@@ -22,7 +24,11 @@ module.exports = {
   	},
   	gender: {
   		type: "string"
-  	}
+  	},
+    passports: {
+      collection: 'Passport',
+      via: 'user'
+    }
   }
 };
 
