@@ -88,8 +88,7 @@ module.exports = {
 	 */
 	find: function(req, res) {
 		var user = req.user;
-		var Model = actionUtil.parseModel(req);
-
+		
 		var query = Measurement.find()
 			.where({ user: user.id})
 			.limit(actionUtil.parseLimit(req))
