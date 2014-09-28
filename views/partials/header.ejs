@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-inverse" role="navigation">
 		<ul class="nav navbar-nav navbar-right">
 			<li class='<%- active == "calculate" ? "active" : "" %>'><a href="/calculate" title="Calculate your BMI">Calculate your BMI</a></li>
-			<li class='<%- active == "history" ? "active" : "" %>'><a href="/history" title="<%= req.user.name %> history"><%= req.user.name %> history</a></li>
+			<li class='<%- active == "history" ? "active" : "" %>'><a href="/history" title="Your history"><%= req.user.name ? req.user.name : '' %> history</a></li>
 			<li><a href="/logout" title="Log out"><i class="glyphicon glyphicon-off"></i></a></li>
 		</ul>
 	</nav>
