@@ -1,62 +1,59 @@
 <div id="page" ng-app="calculateApp">
-	<div id="wrapper" backstretch image="images/background.jpg">
+	<%- partial('partials/header.ejs', {active: "calculate"}) %>
 
-		<%- partial('partials/header.ejs', {active: "calculate"}) %>
+	<div class="container">
+		<div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 col-lg-offset-4 col-md-offset-4 col-sm-offset-1 col-xs-offset-1">
+			<div class="content well calculator">
+				<div ng-view></div>
 
-		<div class="container">
-			<div class="col-lg-4 col-md-4 col-sm-8 col-xs-8 col-lg-offset-4 col-md-offset-4 col-sm-offset-1 col-xs-offset-1">
-				<div class="content well calculator">
-					<div ng-view></div>
-
-					<script type="text/ng-template" id="calculate.html">
-						<h2 class="title-center">BMI Calculator</h2>
-						<form name="calculateForm" id="calculateForm" role="form" ng-controller="CalculateController">
-							<div ng-show="showMessage" role="alert" class="alert alert-dismissible alert-danger">
-								<strong>{{ message }}</strong>
-								<button type="button" class="close" data-dismiss="alert">
-									<span aria-hidden="true">&times;</span>
-									<span class="sr-only">Close</span>
-								</button>
-							</div>
-
-							<div class="form-group">
-								<label for="system">Select system:</label>
-								<select name="system" id="system" class="form-control input-lg" ng-model="form.system">
-									<option value="metric" selected="selected">Metric</option>
-									<option value="imperial">English/Imperial (soon)</option>
-								</select>
-							</div>
-
-							<label for="weight">Weight:</label>
-							<div class="form-inline">
-								<div class="form-group">
-									<input type="text" name="weight" placeholder="Enter your weight" class="form-control input-lg" ng-model="form.weight" required />
-								</div>
-							</div>
-
-							<br />
-
-							<label for="height">Height:</label>
-							<div class="form-inline">
-								<div class="form-group">
-									<input type="text" name="height" placeholder="Enter your height" class="form-control input-lg" ng-model="form.height" />
-								</div>
-							</div>
-							<br />
-							<button ng-click="calculateBMI()" class="btn btn-success btn-lg btn-block">Calculate my BMI</button>
-						</form>
-					</script>
-
-					<script type="text/ng-template" id="result.html">
-						<div onLoadFadeIn>
-							<h2 class="title-center">Your BMI is:</h2>
-							<h1 class="title-center">{{ result.bmi }}</h1>
-							<h4 class="title-center"><strong>{{ result.category }}</strong></h4>
-
-							<a class="btn btn-info btn-block" href="/history">Check past results here</a>
+				<script type="text/ng-template" id="calculate.html">
+					<h2 class="title-center">BMI Calculator</h2>
+					<form name="calculateForm" id="calculateForm" role="form" ng-controller="CalculateController">
+						<div ng-show="showMessage" role="alert" class="alert alert-dismissible alert-danger">
+							<strong>{{ message }}</strong>
+							<button type="button" class="close" data-dismiss="alert">
+								<span aria-hidden="true">&times;</span>
+								<span class="sr-only">Close</span>
+							</button>
 						</div>
-					</script>
-				</div>
+
+						<div class="form-group">
+							<label for="system">Select system:</label>
+							<select name="system" id="system" class="form-control input-lg" ng-model="form.system">
+								<option value="metric" selected="selected">Metric</option>
+								<option value="imperial">English/Imperial (soon)</option>
+							</select>
+						</div>
+
+						<label for="weight">Weight:</label>
+						<div class="form-inline">
+							<div class="form-group">
+								<input type="text" name="weight" placeholder="Enter your weight" class="form-control input-lg" ng-model="form.weight" required />
+							</div>
+						</div>
+
+						<br />
+
+						<label for="height">Height:</label>
+						<div class="form-inline">
+							<div class="form-group">
+								<input type="text" name="height" placeholder="Enter your height" class="form-control input-lg" ng-model="form.height" />
+							</div>
+						</div>
+						<br />
+						<button ng-click="calculateBMI()" class="btn btn-success btn-lg btn-block">Calculate my BMI</button>
+					</form>
+				</script>
+
+				<script type="text/ng-template" id="result.html">
+					<div onLoadFadeIn>
+						<h2 class="title-center">Your BMI is:</h2>
+						<h1 class="title-center">{{ result.bmi }}</h1>
+						<h4 class="title-center"><strong>{{ result.category }}</strong></h4>
+
+						<a class="btn btn-info btn-block" href="/history">Check past results here</a>
+					</div>
+				</script>
 			</div>
 		</div>
 	</div>

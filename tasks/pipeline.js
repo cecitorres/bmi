@@ -28,7 +28,6 @@ var jsFilesToInject = [
 
   // Dependencies like jQuery, or Angular are brought in here
   'vendor/jquery/dist/jquery.js',
-  'vendor/jquery-backstretch/src/jquery.backstretch.js',
   'vendor/angular/angular.js',
   'vendor/angular-strap/dist/angular-strap.js',
   'vendor/angular-strap/dist/angular-strap.tpl.js',
@@ -36,7 +35,6 @@ var jsFilesToInject = [
   'vendor/angular-route/angular-route.js',
   'vendor/angular-animate/angular-animate.js',
   'vendor/bootstrap/dist/js/bootstrap.js',
-  'vendor/angular-backstretch/angular-backstretch.js',
   'vendor/moment/moment.js',
   'vendor/angular-moment/angular-moment.js',
   // All of the rest of your client-side js files

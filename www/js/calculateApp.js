@@ -60,7 +60,6 @@
 	});
 
 	calculateApp.controller("ResultController", function($scope, $rootScope, $location, $routeParams) {
-		console.log($rootScope.result);
 		$scope.result = $rootScope.result;
 	});
 })();

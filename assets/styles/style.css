@@ -1,19 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400,600);
 
+html { 
+  background: url("../images/background.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
+  background: none;
 }
 
 #page {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
-
-#wrapper {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+  color: #000;
 }
 
 .vertical-align {
