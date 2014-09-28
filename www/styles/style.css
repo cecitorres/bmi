@@ -85,7 +85,7 @@ h1.main-title {
 }
 
 .white {
-  color: #fff;
+  color: #fff !important;
 }
 
 .well {
@@ -117,6 +117,8 @@ h1.main-title {
   font-size: 16px;
 }
 
-.navbar li.active a {
-  background: none;
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #fff;
+    font-weight: bold;
 }

@@ -31,24 +31,26 @@ var AuthController = {
    * @param {Object} res
    */
   login: function (req, res) {
-    var strategies = sails.config.passport
-      , providers  = {};
+    // var strategies = sails.config.passport
+    //   , providers  = {};
 
-    // Get a list of available providers for use in your templates.
-    Object.keys(strategies).forEach(function (key) {
-      if (key === 'local') return;
+    // // Get a list of available providers for use in your templates.
+    // Object.keys(strategies).forEach(function (key) {
+    //   if (key === 'local') return;
 
-      providers[key] = {
-        name : strategies[key].name
-      , slug : key
-      };
-    });
+    //   providers[key] = {
+    //     name : strategies[key].name
+    //   , slug : key
+    //   };
+    // });
 
-    // Render the `auth/login.ext` view
-    res.view({
-      providers : providers
-    , errors    : req.flash('error')
-    });
+    // // Render the `auth/login.ext` view
+    // res.view({
+    //   providers : providers
+    // , errors    : req.flash('error')
+    // });
+
+    res.redirect('/');
   },
 
   /**
@@ -118,7 +120,9 @@ var AuthController = {
    * @param {Object} res
    */
   callback: function (req, res) {
-    function tryAgain () {
+    function tryAgain (err) {
+      if(err) sails.log.error(err);
+
       // If an error was thrown, redirect the user to the login which should
       // take care of rendering the error messages.
       req.flash('form', req.body);
@@ -126,7 +130,8 @@ var AuthController = {
     }
 
     passport.callback(req, res, function (err, user) {
-      if (err) return tryAgain();
+      if (err) return tryAgain(err);
+
       req.login(user, function (loginErr) {
         if (loginErr) return tryAgain();
 

@@ -16,14 +16,14 @@ module.exports = {
   		type: "string",
       unique: true
   	},
+    name: {
+      type: "string"
+    },
   	lastHeight: {
   		type: "height"
   	},
   	lastWeight: {
   		type: "height"
-  	},
-  	gender: {
-  		type: "string"
   	},
     passports: {
       collection: 'Passport',
