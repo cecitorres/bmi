@@ -18,7 +18,7 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-    connection: 'productionMongodbServer',
+    connection: 'mongoDbServer',
     migrate: 'safe'
   },
 

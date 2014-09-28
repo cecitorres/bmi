@@ -9,7 +9,7 @@ web:
     - "1337:1337"
     - "80:80"
   environment:
-    NODE_ENV: production 
+    NODE_ENV: development 
 mongodb:
   image: luis/mongodb
   expose:
