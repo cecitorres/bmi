@@ -7,6 +7,7 @@ web:
     - "mongodb:mongodb"
   ports:
     - "1337:1337"
+    - "80:80"
   environment:
     NODE_ENV: production 
     PORT: 1337
