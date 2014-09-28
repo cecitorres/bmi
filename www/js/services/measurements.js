@@ -17,7 +17,8 @@
 					method: "GET",
 					isArray: true,
 					params: {
-						limit: "@limit"
+						limit: "@limit",
+						sort: "@sort"
 					}
 				},
 				remove: {

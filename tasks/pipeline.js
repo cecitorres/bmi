@@ -34,6 +34,7 @@ var jsFilesToInject = [
   'vendor/angular-strap/dist/angular-strap.tpl.js',
   'vendor/angular-resource/angular-resource.js',
   'vendor/angular-route/angular-route.js',
+  'vendor/angular-animate/angular-animate.js',
   'vendor/bootstrap/dist/js/bootstrap.js',
   'vendor/angular-backstretch/angular-backstretch.js',
   'vendor/moment/moment.js',

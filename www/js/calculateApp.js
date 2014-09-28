@@ -3,27 +3,45 @@
 
 	var calculateApp = angular.module("calculateApp", [
 		"ngResource", 
+		"ngRoute",
+		"ngAnimate",
 		"le.backstretch",
 		"bmi.measurements",
 		"bmi.users"
 	]);
 
 	/**
+	 * Router
+	 */
+	calculateApp.config(function($routeProvider, $locationProvider) {
+		$routeProvider
+			.when("/", {
+				redirectTo: "/calculate"
+			})
+			.when("/calculate", {
+				templateUrl: "calculate.html",
+				controller: "CalculateController"
+			})
+			.when("/result", {
+				templateUrl: "result.html",
+				controller: "ResultController"
+			})
+	});
+
+	/**
 	 * Main controller
 	 * @return {void}
 	 */
-	calculateApp.controller("CalculateController", function($scope, Measurements, Users) {
+	calculateApp.controller("CalculateController", function($scope, $rootScope, $location, Measurements, Users) {
 		// Declare an empty object to hold the values of the form
-		$scope.user = Users.get();
-
 		$scope.form = {
-			weight: $scope.user.lastWeight,
-			height: $scope.user.lastHeight,
 			system: "metric"
 		};
 
-		$scope.weight = $scope.user.lastWeight;
-
+		var user = Users.get(function() {
+			$scope.form.weight = user.lastWeight ? user.lastWeight : null;
+			$scope.form.height = user.lastHeight ? user.lastHeight : null;	
+		});
 
 		$scope.showMessage = false;
 		$scope.calculateBMI = function() {
@@ -34,10 +52,15 @@
 				$scope.showMessage = true;
 			}
 
-			var response = Measurements.save($scope.form);
+			$rootScope.result = Measurements.save($scope.form);
 
-			// redirect to the route with the result
+			// redirect to the route with the result on the $rootScope.result
+			$location.path("result");
 		};
+	});
 
+	calculateApp.controller("ResultController", function($scope, $rootScope, $location, $routeParams) {
+		console.log($rootScope.result);
+		$scope.result = $rootScope.result;
 	});
 })();

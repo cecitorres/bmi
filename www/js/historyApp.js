@@ -8,7 +8,7 @@
 	]);
 
 	historyApp.controller("HistoryController", function($scope, Measurements) {
-		$scope.meassurements = Measurements.index({limit: 30});
+		$scope.meassurements = Measurements.index({limit: 30, sort: "createdAt desc"});
 	});
 
 })();
