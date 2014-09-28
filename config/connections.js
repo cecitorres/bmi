@@ -62,7 +62,8 @@ module.exports.connections = {
     port: process.env.MONGODB_PORT_27017_TCP_PORT ? process.env.MONGODB_PORT_27017_TCP_PORT : 27017,
     user: process.env.MONGOHQ_USER,
     password: process.env.MONGOHQ_USER,
-    database: process.env.MONGODB_ENV_DB
+    database: process.env.MONGODB_ENV_DB,
+    ssl: true
   },
 
   // productionMongodbServer: {
