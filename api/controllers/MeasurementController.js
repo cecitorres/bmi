@@ -82,18 +82,26 @@ module.exports = {
 		});
 	},
 
+	/**
+	 * Rewrite the method to make sure the user can only
+	 * access it's own results
+	 */
 	find: function(req, res) {
 		var user = req.user;
 		var Model = actionUtil.parseModel(req);
 
 		var query = Measurement.find()
+			.where({ user: user.id})
 			.limit(actionUtil.parseLimit(req))
 			.skip(actionUtil.parseSkip(req))
 			.sort(actionUtil.parseSort(req))
 			.exec(function(err, results) {
-				sails.log(err);
-				sails.log(results);
-
+				if (err) {
+					sails.log.error(err);
+					return res.negotiate(err);
+				}
+				
+				res.status(200);
 				res.ok(results);
 			});
 	}
