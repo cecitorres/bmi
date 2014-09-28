@@ -7,14 +7,14 @@
 				<h1 class="white">Your results the last 30 days</h1>
 				<table class="table table-hover">
 					<thead>
-						<th>Date</th>
+						<th>When</th>
 						<th>Weight</th>
 						<th>BMI</th>
 						<th>Category</th>
 					</thead>
 					<tbody>
 						<tr ng-repeat="datapoint in meassurements">
-							<td>{{ datapoint.createdAt | amDateFormat: 'dddd, MMMM D '}}</td>
+							<td>{{ datapoint.createdAt | amDateFormat: 'dddd, MMMM D - h:mm a'}}</td>
 							<td>{{ datapoint.weight }} kg</td>
 							<td>{{ datapoint.bmi }}</td>
 							<td>{{ datapoint.category }}</td>

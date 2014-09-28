@@ -3,7 +3,6 @@
 
 	var historyApp = angular.module("historyApp", [
 		"bmi.measurements", 
-		"le.backstretch",
 		"angularMoment"
 	]);
 
