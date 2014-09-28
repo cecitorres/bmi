@@ -95,36 +95,54 @@ passport.connect = function (req, query, profile, next) {
     provider   : profile.provider
   , identifier : query.identifier.toString()
   }, function (err, passport) {
+    if (err) sails.log.error(err);
     if (err) return next(err);
 
     if (!req.user) {
+      sails.log("No user here");
       // Scenario: A new user is attempting to sign up using a third-party
       //           authentication provider.
       // Action:   Create a new user and assign them a passport.
       if (!passport) {
-        User.create(user, function (err, user) {
-          if (err) {
-            if(err.code === "E_VALIDATION"){
-              req.flash('error', err.invalidAttributes.email ? 
-                'Error.Passport.Email.Exists' : 'Error.Passport.User.Exists');
-            }
-            return next(err);
+        sails.log("No passport ethier");
+
+        // Try to find the user first
+        
+        User.findOne({email: user.email}, function(err, user) {
+          if(err) return next();
+
+          if(!user) {
+            sails.log("No user was found, creating it");
+            // No user was found, create it
+            User.create(user, function (err, user) {
+              if (err) {
+                if(err.code === "E_VALIDATION"){
+                  req.flash('error', err.invalidAttributes.email ? 
+                    'Error.Passport.Email.Exists' : 'Error.Passport.User.Exists');
+                }
+                return next(err);
+              }
+              
+              query.user = user.id;
+
+              Passport.create(query, function (err, passport) {
+                // If a passport wasn't created, bail out
+                if (err) return next(err);
+
+                next(err, user);
+              });
+            });
           }
-          
-          query.user = user.id;
-
-          Passport.create(query, function (err, passport) {
-            // If a passport wasn't created, bail out
-            if (err) return next(err);
-
+          else {
             next(err, user);
-          });
+          }
         });
       }
       // Scenario: An existing user is trying to log in using an already
       //           connected passport.
       // Action:   Get the user associated with the passport.
       else {
+        sails.log("There is a passport");
         // If the tokens have changed since the last session, update them
         if (query.hasOwnProperty('tokens') && query.tokens !== passport.tokens) {
           passport.tokens = query.tokens;
