@@ -19,7 +19,7 @@ module.exports = {
 
   models: {
     connection: 'mongoDbServer',
-    migrate: 'safe'
+    migrate: 'alter'
   },
 
   /***************************************************************************
@@ -32,8 +32,8 @@ module.exports = {
    * Set the log level in production environment to "silent"                 *
    ***************************************************************************/
 
-  // log: {
-  //   level: "silent"
-  // }
+  log: {
+    level: "silly"
+  }
 
 };
