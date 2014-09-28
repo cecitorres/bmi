@@ -72,6 +72,10 @@ module.exports.session = {
   port: process.env.MONGODB_PORT_27017_TCP_PORT ? process.env.MONGODB_PORT_27017_TCP_PORT : 27017,
   db: process.env.MONGODB_ENV_DB,
   collection: 'sessions',
+  user: process.env.MONGOHQ_USER,
+  password: process.env.MONGOHQ_PASSWORD,
+  auto_reconnect: true
+  // ssl: false,
 
   /***************************************************************************
   *                                                                          *
@@ -82,10 +86,6 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // username: '',
-  // password: '',
-  // auto_reconnect: false,
-  // ssl: false,
   // stringify: true
 
 };
