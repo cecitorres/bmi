@@ -5,7 +5,6 @@
 		"ngResource", 
 		"ngRoute",
 		"ngAnimate",
-		"le.backstretch",
 		"bmi.measurements",
 		"bmi.users"
 	]);
