@@ -1,5 +1,7 @@
-body {
+@import url(http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400,600);
 
+body {
+  font-family: 'Open Sans', sans-serif;
 }
 
 #page {
@@ -61,8 +63,12 @@ span.buttonText {
   font-size: 14px;
   font-weight: bold;
   /* Use the Roboto font that is loaded in the <head> */
-  font-family: 'Roboto',arial,sans-serif;
 }
+
+h1, h2 {
+  font-family: 'Raleway', sans-serif;
+}
+
 h1.main-title {
   color: #fff;
 }
@@ -88,4 +94,29 @@ h1.main-title {
 
 .history-content {
   margin-top: 5em;
+}
+
+.header {
+  width: 98%;
+}
+
+.navbar {
+   background-color: transparent;
+   background: transparent;
+}
+
+.navbar-inverse {
+  border: none;
+}
+
+.navbar li { 
+  color: #000;
+} 
+
+.navbar li a {
+  font-size: 16px;
+}
+
+.navbar li.active a {
+  background: none;
 }

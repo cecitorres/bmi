@@ -1,5 +1,7 @@
 <div id="page" ng-app="historyApp">
 	<div id="wrapper" backstretch image="images/background.jpg">
+		<%- partial('partials/header.ejs', {active: "history"}) %>
+
 		<div class="container">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="content well history-content" ng-controller="HistoryController">
