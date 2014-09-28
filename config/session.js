@@ -74,8 +74,8 @@ module.exports.session = {
   collection: 'sessions',
   user: process.env.MONGOHQ_USER,
   password: process.env.MONGOHQ_PASSWORD,
-  auto_reconnect: true
-  // ssl: false,
+  auto_reconnect: true,
+  ssl: true,
 
   /***************************************************************************
   *                                                                          *
