@@ -108,10 +108,10 @@ passport.connect = function (req, query, profile, next) {
 
         // Try to find the user first
         
-        User.findOne({email: user.email}, function(err, user) {
+        User.findOne({email: user.email}, function(err, result) {
           if(err) return next();
 
-          if(!user) {
+          if(!result) {
             sails.log("No user was found, creating it");
             // No user was found, create it
             User.create(user, function (err, user) {
@@ -134,7 +134,7 @@ passport.connect = function (req, query, profile, next) {
             });
           }
           else {
-            next(err, user);
+            next(err, result);
           }
         });
       }
