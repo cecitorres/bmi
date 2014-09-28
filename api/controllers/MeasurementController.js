@@ -28,7 +28,7 @@ module.exports = {
 		var input = actionUtil.parseValues(req);
 
 		// Instantiate the BMI class
-		var calculate = new BMI(input.weight, input.height);
+		var bmi = new BMI(Number(input.weight), Number(input.height));
 
 		// return error for now
 		// @todo accept imperial system
@@ -36,35 +36,68 @@ module.exports = {
 			// calculate.convertConfusingSystemToMetricSystem();
 			return res.negotiate(err)
 		}
-
-		var bmi = calculate.getBMI();
-		var category = calculate.getCategory();
 		
+		var getBMI = bmi.getBMI();
+
 		var data = {
-			weight: input.weight,
-			height: calculate.getHeight(),
-			bmi: bmi,
+			weight: bmi.getWeight(),
+			height: bmi.getHeight(),
+			bmi: getBMI,
 			user: user.id,
-			category: category
+			category: bmi.getCategory(getBMI)
 		}
 		
 		Model.create(data).exec(function(err, result) {
-			if (err) return res.negotiate(err);
+			if (err) {
+				sails.log.error(err);
+				return res.negotiate(err);
+			}
 
-			// If we have the pubsub hook, use the model class's publish method
-			// to notify all subscribers about the created item
-			if (req._sails.hooks.pubsub) {
-				if (req.isSocket) {
-					Model.subscribe(req, result);
-					Model.introduce(result);
+			// Update the user with the last weight and height so
+			// we can suggest on the next visit
+			User.update(user.id, {
+				"lastHeight": data.height,
+				"lastWeight": data.weight
+			}, function(err, updated) {
+				if (err) {
+					sails.log.error(err);
+					return res.negotiate(err);
+				}
+
+				// If we have the pubsub hook, use the model class's publish method
+				// to notify all subscribers about the created item
+				if (req._sails.hooks.pubsub) {
+					if (req.isSocket) {
+						Model.subscribe(req, result);
+						Model.introduce(result);
+					}
+					
+					Model.publishCreate(result, !req.options.mirror && req);
 				}
 				
-				Model.publishCreate(result, !req.options.mirror && req);
-			}
-			
-			res.status(201);
-			res.ok(result.toJSON());
+				res.status(201);
+				res.ok(result.toJSON());
+			});
+
 		});
+	},
+
+	find: function(req, res) {
+		var user = req.user;
+		var Model = actionUtil.parseModel(req);
+
+		// sails.log(Model);
+
+		var query = Measurement.find()
+			.limit(actionUtil.parseLimit(req))
+			.skip(actionUtil.parseSkip(req))
+			.sort(actionUtil.parseSort(req))
+			.exec(function(err, results) {
+				sails.log(err);
+				sails.log(results);
+
+				res.ok(results);
+			});
 	}
 };
 

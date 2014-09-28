@@ -55,54 +55,51 @@ BMI.prototype.getBMI = function() {
 
 	// calculate
 	this.bmi = self.weight/(self.height*self.height);
-	return bmi;
+	return parseFloat(this.bmi.toFixed(2));
 }
 
-BMI.prototype.convertPoundsToKilos = function(lb) {
-	var kg = lb/2.2046;
-	return kg;
-}
+// BMI.prototype.convertPoundsToKilos = function(lb) {
+// 	var kg = lb/2.2046;
+// 	return kg;
+// }
 
-BMI.prototype.convertHeightToMeters = function(feet, inches) {
-	var _inches = (feet * 12) + inches;
-	var cm = inches * 2.54;
-	var meters = cm/100;
+// BMI.prototype.convertHeightToMeters = function(feet, inches) {
+// 	var _inches = (feet * 12) + inches;
+// 	var cm = inches * 2.54;
+// 	var meters = cm/100;
 
-	return meters;
-}
+// 	return meters;
+// }
 
-BMI.prototype.getCategory = function() {
-	var bmi = this.bmi;
-	var category;
+BMI.prototype.getCategory = function(n) {
+	var bmi = parseFloat(n);
 	if(bmi < 15) {
-		category = "Very severely underweight";
+		return "Very severely underweight";
 	}
 	else if(bmi >= 15.0 && bmi < 16.0) {
-		category = "Severely underweight";
+		return "Severely underweight";
 	}
 	else if(bmi >= 16.0 && bmi < 18.5) {
-		category = "Underweight";
+		return "Underweight";
 	}
 	else if(bmi >= 18.5 && bmi < 25) {
-		category = "Normal (healthy weight)";
+		return "Normal (healthy weight)";
 	}
 	else if(bmi >= 25 && bmi < 30) {
-		category = "Overweight";
+		return "Overweight";
 	}
 	else if(bmi >= 30 && bmi < 35) {
-		category = "Obese Class I (Moderately obese)";
+		return "Moderately obese";
 	}
 	else if(bmi >= 35 && bmi < 40) {
-		category = "Obese Class II (Severely obese)";
+		return "Severely obese";
 	}
 	else if(bmi >= 40) {
-		category = "Obese Class III (Very severely obese)";
+		return "Very severely obese";
 	}
 	else {
-		category = "That's not a category";
+		return "That's not a category";
 	}
-
-	return category;
 }
 
 module.exports = BMI;

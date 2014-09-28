@@ -3,7 +3,7 @@
 		.service("Measurements", function($resource) {
 			var baseUrl = "/api/v1/measurements/:id";
 			return $resource(baseUrl, {
-				id: "@id"
+				id: "@id",
 			}, {
 				get: {
 					method: "GET",
@@ -15,7 +15,10 @@
 				},
 				index: {
 					method: "GET",
-					isArray: true
+					isArray: true,
+					params: {
+						limit: "@limit"
+					}
 				},
 				remove: {
 					method: "DELETE",

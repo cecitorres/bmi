@@ -28,8 +28,10 @@
     "connect-mongo": "~0.4.1",
     "sails-generate-auth": "~0.1.6",
     "validator": "~3.19.0",
-    "bcrypt": "~0.8.0"
+    "bcrypt": "~0.8.0",
+    "should": "~4.0.4"
   },
+  "devDependencies": {},
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js"

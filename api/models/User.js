@@ -20,10 +20,10 @@ module.exports = {
       type: "string"
     },
   	lastHeight: {
-  		type: "height"
+  		type: "float"
   	},
   	lastWeight: {
-  		type: "height"
+  		type: "float"
   	},
     passports: {
       collection: 'Passport',
