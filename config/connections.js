@@ -60,10 +60,10 @@ module.exports.connections = {
     adapter: 'sails-mongo',
     host: process.env.MONGODB_PORT_27017_TCP_ADDR,
     port: process.env.MONGODB_PORT_27017_TCP_PORT ? process.env.MONGODB_PORT_27017_TCP_PORT : 27017,
-    user: process.env.MONGOHQ_USER,
-    password: process.env.MONGOHQ_PASSWORD,
+    // user: process.env.MONGOHQ_USER,
+    // password: process.env.MONGOHQ_PASSWORD,
     database: process.env.MONGODB_ENV_DB,
-    ssl: true
+    schema: true,
   },
 
   // productionMongodbServer: {

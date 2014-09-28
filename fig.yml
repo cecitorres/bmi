@@ -3,13 +3,14 @@ web:
   volumes:
     - ./:/var/www
     - /var/log/docker/bmi:/var/log/supervisor
-  links:
-    - "mongodb:mongodb"
   ports:
     - "1337:1337"
     - "80:80"
+  links: 
+    - "mongodb:mongodb"
   environment:
-    NODE_ENV: development 
+    NODE_ENV: production
+    PORT: 80
 mongodb:
   image: luis/mongodb
   expose:

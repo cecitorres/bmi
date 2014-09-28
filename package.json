@@ -29,7 +29,9 @@
     "sails-generate-auth": "~0.1.6",
     "validator": "~3.19.0",
     "bcrypt": "~0.8.0",
-    "should": "~4.0.4"
+    "should": "~4.0.4",
+    "sails-redis": "0.10.3",
+    "connect-redis": "1.4.5"
   },
   "devDependencies": {},
   "scripts": {

@@ -41,7 +41,7 @@ module.exports.session = {
   * session store that can be shared across multiple Sails.js servers        *
   ***************************************************************************/
 
-  // adapter: 'redis',
+  adapter: 'redis',
 
   /***************************************************************************
   *                                                                          *
@@ -57,8 +57,6 @@ module.exports.session = {
   // ttl: <redis session TTL in seconds>,
   // db: 0,
   // pass: <redis auth password>
-  // prefix: 'sess:'
-
 
   /***************************************************************************
   *                                                                          *
@@ -72,10 +70,6 @@ module.exports.session = {
   port: process.env.MONGODB_PORT_27017_TCP_PORT ? process.env.MONGODB_PORT_27017_TCP_PORT : 27017,
   db: process.env.MONGODB_ENV_DB,
   collection: 'sessions',
-  user: process.env.MONGOHQ_USER,
-  password: process.env.MONGOHQ_PASSWORD,
-  auto_reconnect: true,
-  ssl: true,
 
   /***************************************************************************
   *                                                                          *

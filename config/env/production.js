@@ -19,7 +19,7 @@ module.exports = {
 
   models: {
     connection: 'mongoDbServer',
-    migrate: 'alter'
+    migrate: 'safe'
   },
 
   /***************************************************************************
