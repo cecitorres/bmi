@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400,600);
 
 html { 
-  background: url("../images/background.jpg") no-repeat center center fixed; 
+  background: url("../images/bg11.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -17,15 +17,14 @@ body {
   color: #000;
 }
 
-.vertical-align {
-	position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+.horizontal-align {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
-.horizontal-align {
-	left: 50%;
-	positon: absolute;
+.vertical-align {
+    margin-top: 20%;
 }
 
 .content {
@@ -68,6 +67,12 @@ span.buttonText {
 
 h1, h2 {
   font-family: 'Raleway', sans-serif;
+}
+
+h1.frontpage-title {
+    font-size: 4em;
+    margin-bottom: 1em;
+    text-align: center;
 }
 
 h1.main-title {
