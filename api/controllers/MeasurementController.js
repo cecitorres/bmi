@@ -86,8 +86,6 @@ module.exports = {
 		var user = req.user;
 		var Model = actionUtil.parseModel(req);
 
-		// sails.log(Model);
-
 		var query = Measurement.find()
 			.limit(actionUtil.parseLimit(req))
 			.skip(actionUtil.parseSkip(req))

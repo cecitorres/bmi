@@ -53,10 +53,11 @@ module.exports.policies = {
   MeasurementController: {
     "*": "passport",
     calculate: "passport",
+    history: "passport",
     create: "passport",
     edit: false,
     remove: false,
     find: "passport",
-    findOne: "passport"
+    findOne: false
   }
 };
