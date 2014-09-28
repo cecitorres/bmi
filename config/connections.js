@@ -65,6 +65,15 @@ module.exports.connections = {
     database: process.env.MONGODB_ENV_DB
   },
 
+  productionMongodbServer: {
+    adapter: 'sails-mongo',
+    host: process.env.MONGOHQ_HOST,
+    port: process.env.MONGOHQ_PORT,
+    user: process.env.MONGOHQ_USER,
+    password: process.env.MONGOHQ_PASSWORD,
+    database: process.env.MONGOHQ_DATABASE
+  },
+
   /***************************************************************************
   *                                                                          *
   * PostgreSQL is another officially supported relational database.          *
