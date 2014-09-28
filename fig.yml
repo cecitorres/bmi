@@ -10,7 +10,6 @@ web:
     - "80:80"
   environment:
     NODE_ENV: production 
-    PORT: 1337
 mongodb:
   image: luis/mongodb
   expose:
