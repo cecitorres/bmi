@@ -41,6 +41,7 @@ var jsFilesToInject = [
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/services/measurements.js',
+  'js/services/users.js',
   'js/frontpageApp.js',
   'js/calculateApp.js',
   'js/historyApp.js'
