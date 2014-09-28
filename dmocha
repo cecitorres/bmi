@@ -1,0 +1,2 @@
+#!/bin/bash
+fig run --rm web mocha --colors --timeout 15 --reporter tap "$@"
