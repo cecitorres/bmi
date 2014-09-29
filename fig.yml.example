@@ -9,13 +9,16 @@ web:
   links: 
     - "mongodb:mongodb"
   environment:
-    NODE_ENV: development
+    NODE_ENV: production
     PORT: 80
+    GOOGLE_OAUTH_CLIENTID: YOURCLIENTID
+    GOOGLE_OAUTH_CLIENTSECRET: YOURCLIENTSECRETHERE
+    GOOGLE_OAUTH_CALLBACKURL: http://<domain here>/auth/google/callback
 mongodb:
   image: luis/mongodb
+  volumes_from:
+    - MONGODB_DATA
   expose:
     - "27017"
-  ports:
-    - "27017:27017"
   environment:
     DB: bmi
