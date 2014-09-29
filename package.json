@@ -31,7 +31,8 @@
     "bcrypt": "~0.8.0",
     "should": "~4.0.4",
     "sails-redis": "0.10.3",
-    "connect-redis": "1.4.5"
+    "connect-redis": "1.4.5",
+    "passport-google-oauth": "~0.1.5"
   },
   "devDependencies": {},
   "scripts": {

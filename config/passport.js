@@ -52,8 +52,18 @@ module.exports.passport = {
 
   google: {
     name: 'Google',
-    protocol: 'openid',
-    strategy: require('passport-google').Strategy
+    protocol: 'oauth2',
+    strategy: require('passport-google-oauth').OAuth2Strategy,
+    scope: [
+      'https://www.googleapis.com/auth/plus.login',
+      'https://www.googleapis.com/auth/userinfo.profile',
+      'https://www.googleapis.com/auth/userinfo.email'
+    ],
+    options: {
+      clientID: process.env.GOOGLE_OAUTH_CLIENTID,
+      clientSecret: process.env.GOOGLE_OAUTH_CLIENTSECRET,
+      callbackURL: "http://localhost/auth/google/callback"
+    }
   }
 
 };
