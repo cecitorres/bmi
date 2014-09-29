@@ -12,7 +12,7 @@
 	/**
 	 * Router
 	 */
-	calculateApp.config(function($routeProvider, $locationProvider) {
+	calculateApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
 		$routeProvider
 			.when("/", {
 				redirectTo: "/calculate"
@@ -25,13 +25,19 @@
 				templateUrl: "result.html",
 				controller: "ResultController"
 			})
-	});
+	}]);
 
 	/**
 	 * Main controller
 	 * @return {void}
 	 */
-	calculateApp.controller("CalculateController", function($scope, $rootScope, $location, Measurements, Users) {
+	calculateApp.controller("CalculateController", [
+		"$scope", 
+		"$rootScope", 
+		"$location", 
+		"Measurements", 
+		"Users", 
+	function($scope, $rootScope, $location, Measurements, Users) {
 		// Declare an empty object to hold the values of the form
 		$scope.form = {
 			system: "metric"
@@ -56,9 +62,15 @@
 			// redirect to the route with the result on the $rootScope.result
 			$location.path("result");
 		};
-	});
+	}]);
 
-	calculateApp.controller("ResultController", function($scope, $rootScope, $location, $routeParams) {
+	calculateApp.controller("ResultController", [
+		"$scope", 
+		"$rootScope", 
+		"$location", 
+		"$routeParams", 
+	function($scope, $rootScope, $location, $routeParams) {
 		$scope.result = $rootScope.result;
-	});
+	}]);
+
 })();

@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	angular.module("bmi.users", ["ngResource"])
-		.service("Users", function($resource) {
+		.service("Users", ["$resource", function($resource) {
 			var baseUrl = "/api/v1/users/:id";
 			return $resource(baseUrl, {
 				id: "@id",
@@ -11,5 +11,5 @@
 					isArray: false
 				}
 			})
-		});
+		}]);
 })();

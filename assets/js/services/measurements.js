@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	angular.module("bmi.measurements", ["ngResource"])
-		.service("Measurements", function($resource) {
+		.service("Measurements", ["$resource", function($resource) {
 			var baseUrl = "/api/v1/measurements/:id";
 			return $resource(baseUrl, {
 				id: "@id",
@@ -27,5 +27,5 @@
 					isArray: false
 				}
 			})
-		});
+		}]);
 })();

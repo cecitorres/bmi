@@ -6,8 +6,8 @@
 		"angularMoment"
 	]);
 
-	historyApp.controller("HistoryController", function($scope, Measurements) {
+	historyApp.controller("HistoryController", ["$scope", "Measurements", function($scope, Measurements) {
 		$scope.meassurements = Measurements.index({limit: 30, sort: "createdAt desc"});
-	});
+	}]);
 
 })();
