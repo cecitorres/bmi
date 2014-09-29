@@ -37,6 +37,7 @@ var jsFilesToInject = [
   'vendor/bootstrap/dist/js/bootstrap.js',
   'vendor/moment/moment.js',
   'vendor/angular-moment/angular-moment.js',
+  'js/fonts.js',
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/services/measurements.js',
