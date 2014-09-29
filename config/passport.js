@@ -62,7 +62,7 @@ module.exports.passport = {
     options: {
       clientID: process.env.GOOGLE_OAUTH_CLIENTID,
       clientSecret: process.env.GOOGLE_OAUTH_CLIENTSECRET,
-      callbackURL: "http://localhost/auth/google/callback"
+      callbackURL: process.env.GOOGLE_OAUTH_CALLBACKURL
     }
   }
 
